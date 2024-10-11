@@ -1,12 +1,638 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+ 
+    #clr{
+        background-color: chocolate;
+        color: white;
+        font-weight: bold;
+    }
+    #clr2{
+        background-color:cadetblue;
+        color: white;
+        font-weight: bold;
+    }
+ 
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+
+    .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      min-height: 200px;
+    }
+
+    /* Hide the carousel text when the screen is less than 600 pixels wide */
+    @media (max-width: 600px) {
+      .carousel-caption {
+        display: none; 
+      }
+    }
+
+    /* ----------------------------------- */
+    .round-btn {display: inline;height: 40px; width: 40px; background:#fff;border-radius: 50%;float: left;margin: 15px 8px;box-shadow: 2px 2px 5px 0px rgb(82, 0, 67);border: 1px solid;/*border: 1px solid #622657;*/}
+.round-btn a {display: block !important;padding: 7px 12px;font-size: 18px;border-radius: 50%;}
+.round-btn .icon {padding: 3px;}
+.round-btn .icon img{height: 24px; width: 32px;margin-top: 6px;}
+.btn-facebook a {color: #3b5998;padding: 8px 13px;}
+.btn-linkedin a {color: #007bb6;}
+.btn-twitter a{color: #1c9deb;}
+.btn-instagram a{color: #dd3f5c;}
+.btn-whatsapp a{color: #155E54;}
+.btn-envelop a{color: #D6403A;font-size: 15px; padding: 9px 12px;}
+.standard_header .standard_social_links {margin-left: 1rem;}
+
+  /*
+  =========================================================================================
+                                    footer
+  =========================================================================================
+  */
+  
+  .footer-wrap {
+    padding-top: 43px;
+    background-size: cover;
+}
+
+.footer-wrap h3 {
+    color: #fff;
+    font-size: 17px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.footer-wrap p {
+    font-size: 13px;
+    line-height: 24px;
+    color: #b3b3b3;
+    margin-top: 15px;
+}
+
+.footer-wrap p a {
+    color: #fff;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+.footer-wrap p a:hover {
+    text-decoration: none;
+    color: #ff7800;
+}
+
+.footer-links li a {
+    font-size: 13px;
+    line-height: 30px;
+    color: #ccc;
+    text-decoration: none;
+}
+
+
+.footer-links li:before {
+    content: "\f105";
+    font-family: 'FontAwesome';
+    padding-right: 10px;
+    color: #ccc;
+}
+
+.footer-category li a {
+    font-size: 13px;
+    line-height: 30px;
+    color: #ccc;
+    text-decoration: none;
+}
+
+.footer-category li:before {
+    content: "\f105";
+    font-family: 'FontAwesome';
+    padding-right: 10px;
+    color: #b3b3b3;
+}
+
+.address {
+    
+    color: #b3b3b3;
+    font-size: 14px;
+    position: relative;
+    padding-left: 30px;
+    line-height: 30px;
+}
+
+.address:before {
+    content: "\f277";
+    font-family: 'FontAwesome';
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.info a {
+ 
+    color: #b3b3b3;
+    font-size: 14px;
+    line-height: 30px;
+    font-weight: normal;
+}
+
+.fa-phone:before {
+    content: "\f095";
+}
+
+.info a {
+
+    color: #b3b3b3;
+    font-size: 14px;
+    line-height: 30px;
+    font-weight: normal;
+}
+
+.fa-fax:before {
+    content: "\f1ac";
+}
+
+.copyright {
+    border-top: 1px solid #111;
+    font-size: 14px;
+    color: #ccc;
+    padding-top: 15px;
+    text-align: center;
+    padding-bottom: 15px;
+    background: #222;
+}
+footer .second_class{
+    border-bottom: 1px solid #444;
+    padding-bottom: 25px;
+}
+footer .first_class {
+    padding-bottom: 21px;
+    border-bottom: 1px solid #444;
+}
+footer .first_class p, footer .first_class h3{
+    margin: 0 0;
+    
+}
+footer{
+    background: #333;
+}
+
+footer .newsletter input[type="text"] {
+    width: 100%;
+    background: #fff;
+    color: #333;
+    border: 1px solid #222;
+    padding: 14px 20px;
+    border-radius: 50px;
+    margin-top: 12px;
+}
+
+.newsletter .newsletter_submit_btn {
+    background: #fff;
+    position: absolute;
+    right: 30px;
+    border: 0;
+    top: 26px;
+    font-size: 17px;
+    color: #333;
+}
+
+
+footer .second_class_bdr{
+    padding-top: 25px;
+    border-top:1px solid #222;
+}
+
+footer .btn-facebook a {
+    padding: 6px 14px !important;
+}
+
+footer .btn-envelop a {
+    color: #D6403A;
+    font-size: 15px;
+    padding: 12px 12px;
+}
+
+footer .round-btn a {
+    padding: 6px 12px;
+}
+
+footer .round-btn {
+    box-shadow: 2px 2px 5px 0px #222 !important;}
+
+footer .round-btn {
+    margin: 15px 4px;}
+	
+footer dl, ol, ul {
+    padding-left: 5px;
+}
+	footer li{
+		list-style: none;
+	}
+
+@media(max-width:768px){
+    .footer-wrap h3 {
+    margin-top: 27px;}
+    
+    footer .round-btn {
+    margin: 15px 4px;}
+}
+@media(max-width:320px){
+.copyright {
+    font-size: 13px;}
+}	
+  </style>
 </head>
 <body>
-    {{msg}}
-    <h1>Select Your Car</h1>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <div class="navbar-brand" style="font-weight: bold;color: white;">Welcome {{user.fnm}}</div>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+<div class="row">
+  <div class="col-sm-8">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <!-- <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image"> -->
+          <video width="100%" autoplay muted controls>
+            <source src="https://cdn.pixabay.com/video/2015/11/27/1406-147169807_medium.mp4" type="video/mp4">
+          </video>
+          <div class="carousel-caption">
+            <h3>Sell $</h3>
+            <p>Money Money.</p>
+          </div>      
+        </div>
+
+        <div class="item">
+          <!-- <img src="https://plus.unsplash.com/premium_photo-1681486707407-d74abba44efa?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image"> -->
+          <video width="100%" autoplay muted controls>
+            <source src="https://videos.pexels.com/video-files/2103099/2103099-uhd_2560_1440_30fps.mp4" type="video/mp4">
+          </video>
+          <div class="carousel-caption">
+            <h3>More Sell $</h3>
+            <p>Lorem ipsum...</p>
+          </div>      
+        </div>
+      </div>
+
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="well" id="clr">
+        <h4>Search for cheap car rental in seconds anywhere in the world</h4>
+    </div>
+    <div class="well" id="clr">
+       <h4>Compare deals from trusted car hire providers in one place</h4>
+    </div>
+    <div class="well" id="clr">
+       <h4>Rent a car with a flexible booking policy or free cancellation</h4>
+    </div>
+  </div>
+</div>
+<hr>
+</div>
+
+<div class="container text-center">    
+  <h3>What We Do</h3>
+  <br>
+  <div class="row">
+    <div class="col-sm-3">
+      <img src="https://images.hindustantimes.com/auto/img/2023/03/23/1600x900/Hyundai_Creta_Venue_1679564862626_1679564873538_1679564873538.jpg" class="img-responsive" style="width:100%" alt="Image">
+      <p>Economy</p>
+    </div>
+    <div class="col-sm-3"> 
+      <img src="https://www.agniban.com/wp-content/uploads/2021/08/car.jpeg" class="img-responsive" style="width:100%" alt="Image">
+      <p>Mini</p>    
+    </div>
+    <div class="col-sm-3">
+      <div class="well" id="clr2">
+       <h4>Car hire fast facts, Book now, cancel later</h4>
+      </div>
+      <div class="well" id="clr2">
+       <h4>Everything you need to know to hit the road happy.</h4>
+      </div>
+    </div>
+    <div class="col-sm-3" >
+      <div class="well" id="clr2">
+       <h4>Booking car hire in three simple steps</h4>
+      </div>
+      <div class="well" id="clr2">
+       <h4>How to find the best car hire deal</h4>
+      </div>
+    </div>  
+  </div>
+  <hr>
+</div><br><br>
+<center style="font-size: 40px;font-weight: bold;">Select Your Car</center><br><br>
+  <!---------------------------------------Cart ---------------------------------- -->
+  <div class="container-fluid bg-3 ">    
+    <div class="row">
+     
+      <div class="col-sm-3" >
+        <img src="https://www.livemint.com/lm-img/img/2023/06/25/600x338/venue_1687676857552_1687676863419.jpg" class="img-responsive" style="width:100%" alt="Image">
+        <form action="{% url 'carinfo' %}" method="post">
+        {% csrf_token %}
+        <h4 style="color: black;font-weight: bold;"  >Fullsize</h4>
+        <h4 style="color: black;font-weight: bold;" >per Day - &#8377;1779</h4>
+        <input type="text" value="Fullsize" hidden name="carnm">
+        <input type="text" value="1779" hidden name="carpay">
+        <input type="text" value="{{user.fnm}}" hidden name="fnm">
+        <input type="text" value="{{user.lnm}}" hidden name="lnm">
+        <input type="text" value="{{user.em}}" hidden name="em">
+        <button type="submit" class="btn btn-primary">Select</button>
+        <hr>
+        </form>
+      </div>
+      <div class="col-sm-3"> 
+        <img src="https://motoroctane.com/wp-content/uploads/2020/10/5721.jpg" class="img-responsive" style="width:100%" alt="Image">
+           <form action="{% url 'carinfo' %}" method="post">
+            {% csrf_token %}
+            <h4 style="color: black;font-weight: bold;">Economy</h4>
+            <h4 style="color: black;font-weight: bold;">per Day - &#8377;2000</h4>
+            <input type="text" value="Economy" hidden name="carnm">
+            <input type="text" value="2000" hidden name="carpay">
+            <input type="text" value="{{user.fnm}}" hidden name="fnm">
+            <input type="text" value="{{user.lnm}}" hidden name="lnm">
+            <input type="text" value="{{user.em}}" hidden name="em">
+            <button type="submit" class="btn btn-primary">Select</button>
+            <hr>
+            </form>
+      </div>
+      <div class="col-sm-3"> 
+        <img src="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/177027/mahindra-xuv-3xo-left-front-three-quarter0.jpeg?isig=0&q=80" class="img-responsive" style="width:100%" alt="Image">
+        <form action="{% url 'carinfo' %}" method="post">
+            {% csrf_token %}
+            <h4 style="color: black;font-weight: bold;">Mini</h4>
+            <h4 style="color: black;font-weight: bold;">per Day - &#8377;1840</h4>
+            <input type="text" value="Mini" hidden name="carnm">
+            <input type="text" value="1840" hidden name="carpay">
+            <input type="text" value="{{user.fnm}}" hidden name="fnm">
+            <input type="text" value="{{user.lnm}}" hidden name="lnm">
+            <input type="text" value="{{user.em}}" hidden name="em">
+            <button type="submit" class="btn btn-primary">Select</button>
+            <hr>
+            </form>
+      </div>
+      <div class="col-sm-3">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsvA3o_xToy8nXYX6eFqoWUu_A-A0L3qyO4Q&s" class="img-responsive" style="width:100%" alt="Image">
+        
+        
+        <form action="{% url 'carinfo' %}" method="post">
+            {% csrf_token %}
+            <h4 style="color: black;font-weight: bold;">Compact</h4>
+            <h4 style="color: black;font-weight: bold;">per Day - &#8377;1909</h4>
+            <input type="text" value="Compact" hidden name="carnm">
+            <input type="text" value="1909" hidden name="carpay">
+            <input type="text" value="{{user.fnm}}" hidden name="fnm">
+            <input type="text" value="{{user.lnm}}" hidden name="lnm">
+            <input type="text" value="{{user.em}}" hidden name="em">
+            <button type="submit" class="btn btn-primary">Select</button>
+            <hr>
+            </form>
+      </div>
+    </div>
+  </div><br>
+  
+  <div class="container-fluid bg-3 ">    
+    <div class="row">
+      <div class="col-sm-3">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/2022_Hyundai_Venue_Preferred_in_Polar_White%2C_Front_Right%2C_09-12-2023.jpg" class="img-responsive" style="width:100%" alt="Image">
+        
+        <form action="{% url 'carinfo' %}" method="post">
+            {% csrf_token %}
+            <h4 style="color: black;font-weight: bold;">Intermediate</h4>
+            <h4 style="color: black;font-weight: bold;">per Day - &#8377;2498</h4>
+            <input type="text" value="Intermediate" hidden name="carnm">
+            <input type="text" value="2498" hidden name="carpay">
+            <input type="text" value="{{user.fnm}}" hidden name="fnm">
+            <input type="text" value="{{user.lnm}}" hidden name="lnm">
+            <input type="text" value="{{user.em}}" hidden name="em">
+            <button type="submit" class="btn btn-primary">Select</button>
+            <hr>
+            </form>
+      </div>
+      <div class="col-sm-3"> 
+        <img src="https://hips.hearstapps.com/hmg-prod/images/2022-hyundai-venue-mmp-1-1634311103.jpg?crop=1.00xw:0.847xh;0,0.149xh&resize=2048:*" class="img-responsive" style="width:100%" alt="Image">
+        <form action="{% url 'carinfo' %}" method="post">
+            {% csrf_token %}
+            <h4 style="color: black;font-weight: bold;">Preminum</h4>
+            <h4 style="color: black;font-weight: bold;">per Day - &#8377;2509</h4>
+            <input type="text" value="Preminum" hidden name="carnm">
+            <input type="text" value="2509" hidden name="carpay">
+            <input type="text" value="{{user.fnm}}" hidden name="fnm">
+            <input type="text" value="{{user.lnm}}" hidden name="lnm">
+            <input type="text" value="{{user.em}}" hidden name="em">
+            <button type="submit" class="btn btn-primary">Select</button>
+            <hr>
+        </form>
+      </div>
+      <div class="col-sm-3"> 
+        <img src="https://www.rushlane.com/wp-content/uploads/2023/08/maruti-fronx-1-5-liter-engine-south-africa-launch-4-600x338.jpg" class="img-responsive" style="width:100%" alt="Image">
+
+        <form action="{% url 'carinfo' %}" method="post">
+            {% csrf_token %}
+            <h4 style="color: black;font-weight: bold;">Economy</h4>
+            <h4 style="color: black;font-weight: bold;">per Day - &#8377;1598</h4>
+            <input type="text" value="Economy" hidden name="carnm">
+            <input type="text" value="1598" hidden name="carpay">
+            <input type="text" value="{{user.fnm}}" hidden name="fnm">
+            <input type="text" value="{{user.lnm}}" hidden name="lnm">
+            <input type="text" value="{{user.em}}" hidden name="em">
+            <button type="submit" class="btn btn-primary">Select</button>
+            <hr>
+        </form>
+      </div>
+      <div class="col-sm-3">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv2ZOnJZ9XNqccR--bnx-dvUiss8YgI5ZRXA&s" class="img-responsive" style="width:100%" alt="Image">
+        <form action="{% url 'carinfo' %}" method="post">
+            {% csrf_token %}
+            <h4 style="color: black;font-weight: bold;">Fullsize</h4>
+            <h4 style="color: black;font-weight: bold;">per Day - &#8377;1888</h4>
+            <input type="text" value="Fullsize" hidden name="carnm">
+            <input type="text" value="1888" hidden name="carpay">
+            <input type="text" value="{{user.fnm}}" hidden name="fnm">
+            <input type="text" value="{{user.lnm}}" hidden name="lnm">
+            <input type="text" value="{{user.em}}" hidden name="em">
+            <button type="submit" class="btn btn-primary">Select</button>
+            <hr>
+        </form>
+      </div>
+    </div>
+  </div><br><br>
+  
+  <!-- ------------------------------------------------------------------------------------------------- -->
+<footer class="container-fluid text-center">
+  
+
+    <footer>
+        <div class="footer-wrap">
+        <div class="container first_class">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                        <h3>BE THE FIRST TO KNOW</h3>
+                        <p>Get all the latest information on  Triedge Services, Events, Jobs
+                            and Fairs. Sign up for our newsletter today.</p>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                    <form class="newsletter">
+                         <input type="text" placeholder="Email Address"> 
+                         <button class="newsletter_submit_btn" type="submit"><i class="fa fa-paper-plane"></i></button>	
+                    </form>
+                    
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                    <div class="col-md-12">
+                        <div class="standard_social_links">
+                    <div>
+                        <li class="round-btn btn-facebook"><a href="#"><i class="fab fa-facebook-f"></i></a>
+    
+                        </li>
+                        <li class="round-btn btn-linkedin"><a href="#"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+    
+                        </li>
+                        <li class="round-btn btn-twitter"><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+    
+                        </li>
+                        <li class="round-btn btn-instagram"><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+    
+                        </li>
+                        <li class="round-btn btn-whatsapp"><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+    
+                        </li>
+                        <li class="round-btn btn-envelop"><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    
+                        </li>
+                    </div>
+                </div>	
+                    </div>
+                        <div class="clearfix"></div>
+                    <div class="col-md-12"><h3 style="text-align: right;">Stay Connected</h3></div>
+                    </div>
+                </div>
+        </div>
+            <div class="second_class">
+                <div class="container second_class_bdr">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6">
+    
+                        <div class="footer-logo"><img src="http://localhost/lrn/img/footer_logo.png" alt="logo">
+                        </div>
+                        <p>Your one-stop career platform to find Jobs, Internships, Professional Trainings, Projects, and Volunteering Opportunities.</p>
+                    </div>
+                    <div class="col-md-2 col-sm-6">
+                        <h3>Quick  LInks</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">Home</a>
+                            </li>
+                            <li><a href="#">About us</a>
+                            </li>
+                            <li><a href="#">Triedge Partners</a>
+                            </li>
+                            <li><a href="#">Contact Us</a>
+                            </li>
+                            <li><a href="#" target="_blank">Terms &amp; Conditions</a>
+                            </li>
+                            <li><a href="#" target="_blank">Privacy Policy</a>
+                            </li>
+                            <li><a href="#">Sitemap</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <h3>OUR SERVICES</h3>
+                        <ul class="footer-category">
+                            <li><a href="#">Fresher Jobs</a>
+                            </li>
+                            <li><a href="#">InternEdge - Internships &amp; Projects </a>
+                            </li>
+                            <li><a href="#">Resume Edge - Resume Writing Services</a>
+                            </li>
+                            <li><a href="#">Readers Galleria - Curated Library</a>
+                            </li>
+                            <li><a href="#">Trideus - Campus Ambassadors</a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <h3>triedge Events</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">Triedge Events</a>
+                            </li>
+    
+                            <li><a href="#">Jobs &AMP; Internship Fair 2019</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+            </div>
+            
+            <div class="row">
+                
+                <div class="container-fluid">
+                <div class="copyright"> Copyright 2019 | All Rights Reserved by TRIEDGE Solutions Pvt. Ltd.</div>
+                </div>
+                
+            </div>
+        </div>
+        
+        </footer>
+    
+    <!--footer end-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        
+        <!-- Font Awesome 5 links-->
+        <script src="https://kit.fontawesome.com/fddf5c0916.js" crossorigin="anonymous"></script>
+    
+
+</footer>
+
 </body>
 </html>
