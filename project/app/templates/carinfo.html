@@ -1,69 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/components/registrations/registration-9/assets/css/registration-9.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet"
+    href="https://unpkg.com/bs-brain@2.0.4/components/registrations/registration-9/assets/css/registration-9.css">
 
 </head>
+
 <body>
-    <!-- <h1>{{data}}</h1> -->
- <!-- --------------- -->
- <section class="h-100 h-custom" style="background-color: #8fc4b7;">
+  <!-- <h1>{{data}}</h1> -->
+  <!-- --------------- -->
+  <section class="h-100 h-custom" style="background-color: #8fc4b7;">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-lg-8 col-xl-6">
           <div class="card rounded-3">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img3.webp"
-              class="w-100" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;"
-              alt="Sample photo">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img3.webp" class="w-100"
+              style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;" alt="Sample photo">
             <div class="card-body p-4 p-md-5">
               <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Fill Your Details</h3>
-  
-              <form class="px-md-2">
+
+              <form class="px-md-2" action="{% url 'datadisplay' %}" method="post">
+                {% csrf_token %}
                 <div data-mdb-input-init class="form-outline mb-4">
                   <label class="form-label" for="form3Example1q">Name</label>
-                  <input type="text" id="form3Example1q" class="form-control" value="{{data.fnm}}" readonly name="fnm"/>
+                  <input type="text" id="form3Example1q" class="form-control" value="{{data.fnm}}" readonly
+                    name="fnm" />
                 </div>
                 <div data-mdb-input-init class="form-outline mb-4">
-                    <label class="form-label" for="form3Example1q">Last Name</label>
-                    <input type="text" id="form3Example1q" class="form-control" value="{{data.lnm}}" readonly name="lnm"/>
+                  <label class="form-label" for="form3Example1q">Last Name</label>
+                  <input type="text" id="form3Example1q" class="form-control" value="{{data.lnm}}" readonly
+                    name="lnm" />
                 </div>
                 <div data-mdb-input-init class="form-outline mb-4">
-                    <label class="form-label" for="form3Example1q">Email Id</label>
-                    <input type="text" id="form3Example1q" class="form-control" value="{{data.em}}" readonly name="em"/>
+                  <label class="form-label" for="form3Example1q">Email Id</label>
+                  <input type="text" id="form3Example1q" class="form-control" value="{{data.em}}" readonly name="em" />
                 </div>
                 <div data-mdb-input-init class="form-outline mb-4">
-                    <label class="form-label" for="form3Example1q">Car Model</label>
-                    <input type="text" id="form3Example1q" class="form-control" value="{{data.cnm}}" readonly name="cnm"/>
+                  <label class="form-label" for="form3Example1q">Car Model</label>
+                  <input type="text" id="form3Example1q" class="form-control" value="{{data.cnm}}" readonly
+                    name="cnm" />
                 </div>
                 <div data-mdb-input-init class="form-outline mb-4">
-                    <label class="form-label" for="form3Example1q">Amout</label>
-                    <input type="text" id="form3Example1q" class="form-control" value="{{data.cpay}}" readonly name="cpay"/>
+                  <label class="form-label" for="form3Example1q">Amout</label>
+                  <input type="text" id="form3Example1q" class="form-control" value="{{data.cpay}}" readonly
+                    name="cpay" />
                 </div>
                 <div data-mdb-input-init class="form-outline mb-4">
-                    <label class="form-label" for="form3Example1q">Pick-up Address</label>
-                    <input type="text" id="form3Example1q" class="form-control"required name="add"/>
+                  <label class="form-label" for="form3Example1q">Pick-up Address</label>
+                  <input type="text" id="form3Example1q" class="form-control" required name="add" />
                 </div>
-  
+
                 <div class="row">
                   <div class="col-md-6 mb-4">
-  
+
                     <div data-mdb-input-init class="form-outline datepicker">
-                        <label for="exampleDatepicker1" class="form-label">Pick-up Date & Time</label>
-                      <input type="datetime-local" class="form-control" id="exampleDatepicker1" required/>
+                      <label for="exampleDatepicker1" class="form-label">Pick-up Date & Time</label>
+                      <input type="datetime-local" class="form-control" id="exampleDatepicker1" required name="pdate" />
                     </div><br>
                     <div data-mdb-input-init class="form-outline datepicker">
-                        <label for="exampleDatepicker1" class="form-label">Drop-off Date & Time</label>
-                        <input type="datetime-local" class="form-control" id="exampleDatepicker1" required/>
+                      <label for="exampleDatepicker1" class="form-label">Drop-off Date & Time</label>
+                      <input type="datetime-local" class="form-control" id="exampleDatepicker1" required name="ddate" />
                     </div>
                   </div>
                 </div>
-                <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-success btn-lg mb-1">Submit</button>  
+                <div data-mdb-input-init class="form-outline mb-4">
+                  <label class="form-label" for="form3Example1q">Add Your Feedback</label>
+                  <input type="text" id="form3Example1q" class="form-control" required name="feed" />
+                </div>
+                <button type="submit" data-mdb-button-init data-mdb-ripple-init
+                  class="btn btn-success btn-lg mb-1">Submit</button>
               </form>
-  
             </div>
           </div>
         </div>
@@ -71,4 +82,5 @@
     </div>
   </section>
 </body>
+
 </html>

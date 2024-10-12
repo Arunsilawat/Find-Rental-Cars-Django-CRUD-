@@ -64,3 +64,23 @@ def carinfo(request):
             'em':em,
         }
         return render(request,'carinfo.html',{'data':data})
+def datadisplay(request):
+    if request.method=='POST':
+        fname=request.POST.get('fnm')
+        lname=request.POST.get('lnm')
+        email=request.POST.get('em')
+        carnm=request.POST.get('cnm')
+        address=request.POST.get('add')
+        pick=request.POST.get('pdate')
+        drop=request.POST.get('ddate')
+        feedback=request.POST.get('feed')
+        data={
+            'fnm':fname,
+            'lnm':lname,
+            'em':email,
+            'cnm':carnm,
+            'add':address,
+            'pdate':pick,
+            'feed':feedback,
+        }
+    return render(request,'datadisplay.html',{'data':data})
