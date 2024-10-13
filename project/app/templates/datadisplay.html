@@ -36,7 +36,7 @@
 </head>
 
 <body>
-    <a href="{% url 'home' %}"><button>Logout</button></a>
+    <a href="{% url 'home' %}"><button style="margin-top: 30px;">Logout</button></a>
      <div style="font-size:5vw;" id="show">Show Your Data</div><br>
     <table class="table" style="border: 2px solid black;width: 100%;" >
         <thead style="background-color: yellow">
@@ -82,11 +82,11 @@
         </div>
         <div data-mdb-input-init class="form-outline mb-4">
           <label class="form-label" for="form1Example2">Pick-Up Date & Time</label>
-          <input type="text" id="form1Example2" class="form-control" name="pick" value="{{key2.pick}}" />
+          <input type="datetime-local" id="form1Example2" class="form-control" name="pick" value="{{key2.pick}}" />
         </div>
         <div data-mdb-input-init class="form-outline mb-4">
             <label class="form-label" for="form1Example1">Drop Date & Time</label>
-            <input type="text" id="form1Example1" class="form-control" name="drop" value="{{key2.drop}}" />
+            <input type="datetime-local" id="form1Example1" class="form-control" name="drop" value="{{key2.drop}}" />
           </div>
           <div data-mdb-input-init class="form-outline mb-4">
             <label class="form-label" for="form1Example2">Feedback</label>

@@ -4,8 +4,7 @@ from.models import Book_data
 # Create your views here.
 def home(request):
     return render(request,'home.html')
-def select(request):
-    return render(request,'select.html')
+
 def register(request):
     if request.method=='POST':
         fname=request.POST.get('firstName')
@@ -124,3 +123,21 @@ def save(request,pk):
         old_data.save()
         alldata=Book_data.objects.filter(email=email)
         return render(request,'datadisplay.html',{'data':alldata})
+
+
+def select(request,em):
+    admindata=Userdata.objects.get(email=em)
+    fname=admindata.fname
+    lname=admindata.lname
+    email=admindata.email
+    password=admindata.password
+    user={
+        'fnm':fname,
+        'lnm':lname,
+        'em':email,
+        'pass':password
+        }
+    return render(request,'select.html',{'user':user})
+def showdata(request,em):
+    data=Book_data.objects.filter(email=em)
+    return render(request,'datadisplay.html',{'data':data})
