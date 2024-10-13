@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from.models import Userdata
+from.models import Book_data
 # Create your views here.
 def home(request):
     return render(request,'home.html')
@@ -70,17 +71,23 @@ def datadisplay(request):
         lname=request.POST.get('lnm')
         email=request.POST.get('em')
         carnm=request.POST.get('cnm')
+        amount=request.POST.get('cpay')
         address=request.POST.get('add')
         pick=request.POST.get('pdate')
         drop=request.POST.get('ddate')
         feedback=request.POST.get('feed')
-        data={
-            'fnm':fname,
-            'lnm':lname,
-            'em':email,
-            'cnm':carnm,
-            'add':address,
-            'pdate':pick,
-            'feed':feedback,
-        }
-    return render(request,'datadisplay.html',{'data':data})
+        Book_data.objects.create(fname=fname,lname=lname,email=email,carnm=carnm,amount=amount,address=address,pick=pick,drop=drop,feedback=feedback)
+        data=Book_data.objects.filter(email=email).values()
+        return render(request,'datadisplay.html',{'data':data})
+def delete(request,pk,em):
+    user=Book_data.objects.filter(id=pk)
+    if user:
+        user=Book_data.objects.get(id=pk)
+        email=user.email
+        user.delete()
+        data=Book_data.objects.filter(email=email)
+        return render(request,'datadisplay.html',{'data':data})
+    else:
+        data=Book_data.objects.filter(email=em)
+        return render(request,'datadisplay.html',{'data':data})
+ 

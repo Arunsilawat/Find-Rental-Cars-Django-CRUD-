@@ -1,12 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #btn {
+            background-color: red;
+            color: white;
+        }
+
+        #btn1 {
+            background-color: green;
+            color: white;
+        }
+        #show{
+            font-weight: bold;
+            text-align: center;
+            border: 2px solid black;
+            background-color: chocolate;
+            color: white;
+            width: 50%;
+            margin: auto;
+            border-radius: 10px;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>datadisplay</h1>
-    <h1>{{data}}</h1>
+    <a href="{% url 'home' %}"><button>Logout</button></a>
+     <div style="font-size:5vw;" id="show">Show Your Data</div><br>
+    <table class="table" style="border: 2px solid black;width: 100%;" >
+        <thead style="background-color: yellow">
+            <tr>
+                <th style="border: 2px solid black;">S No</th>
+                <th style="border: 2px solid black;">Name</th>
+                <th style="border: 2px solid black;">Email</th>
+                <th style="border: 2px solid black;">Car Info</th>
+                <th style="border: 2px solid black;">Amount</th>
+                <th style="border: 2px solid black;">Address</th>
+                <th style="border: 2px solid black;">Pick-Up Date & Time</th>
+                <th style="border: 2px solid black;">Drop Date & Time</th>
+                <th style="border: 2px solid black;">Feedback</th>
+                <th style="border: 2px solid black;">Update</th>
+                <th style="border: 2px solid black;">Update</th>
+            </tr>
+        </thead>
+        <tbody style="background-color: beige;">
+            {% for i in data %}
+            <tr>
+                <td style="border: 2px solid black;">{{forloop.counter}}</td>
+                <td style="border: 2px solid black;">{{i.fname}} {{i.lname}}</td>
+                <td style="border: 2px solid black;">{{i.email}}</td>
+                <td style="border: 2px solid black;">{{i.carnm}}</td>
+                <td style="border: 2px solid black;">{{i.amount}}</td>
+                <td style="border: 2px solid black;">{{i.address}}</td>
+                <td style="border: 2px solid black;">{{i.pick}}</td>
+                <td style="border: 2px solid black;">{{i.drop}}</td>
+                <td style="border: 2px solid black;">{{i.feedback}}</td>
+                <td style="border: 2px solid black;"><a href="{% url 'delete' pk=i.id em=i.email %}"><button id="btn" >Delete</button></a></td>
+                <td style="border: 2px solid black;"><a href=" "><button id="btn1">Edit</button></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
+
 </html>
