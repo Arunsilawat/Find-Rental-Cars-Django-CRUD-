@@ -90,4 +90,37 @@ def delete(request,pk,em):
     else:
         data=Book_data.objects.filter(email=em)
         return render(request,'datadisplay.html',{'data':data})
- 
+def edit(request,pk):
+    data=Book_data.objects.get(id=pk)
+    myid=data.id
+    email=data.email
+    address=data.address
+    pick=data.pick
+    drop=data.drop 
+    feedback=data.feedback
+    print(email,address,pick,feedback)
+    edit_data={
+        'myid':myid,
+        'add':address,
+        'pick':pick,
+        'drop':drop,
+        'feed':feedback
+    }
+    alldata=Book_data.objects.filter(email=email)
+    print(alldata)
+    return render(request,'datadisplay.html',{'data':alldata,'key2':edit_data})
+def save(request,pk):
+    if request.method=='POST':
+        address=request.POST.get('add')
+        pick=request.POST.get('pick')
+        drop=request.POST.get('drop')
+        feedback=request.POST.get('feed')
+        old_data=Book_data.objects.get(id=pk)
+        email=old_data.email
+        old_data.address=address
+        old_data.pick=pick
+        old_data.drop=drop
+        old_data.feedback=feedback
+        old_data.save()
+        alldata=Book_data.objects.filter(email=email)
+        return render(request,'datadisplay.html',{'data':alldata})

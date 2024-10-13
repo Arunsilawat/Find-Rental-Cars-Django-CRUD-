@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
         #btn {
             background-color: red;
@@ -24,6 +27,10 @@
             width: 50%;
             margin: auto;
             border-radius: 10px;
+        }
+        #frm{
+            width: 40%;
+            margin: auto;
         }
     </style>
 </head>
@@ -60,11 +67,34 @@
                 <td style="border: 2px solid black;">{{i.drop}}</td>
                 <td style="border: 2px solid black;">{{i.feedback}}</td>
                 <td style="border: 2px solid black;"><a href="{% url 'delete' pk=i.id em=i.email %}"><button id="btn" >Delete</button></a></td>
-                <td style="border: 2px solid black;"><a href=" "><button id="btn1">Edit</button></a></td>
+                <td style="border: 2px solid black;"><a href="{% url 'edit' pk=i.id %} "><button id="btn1">Edit</button></a></td>
             </tr>
             {% endfor %}
         </tbody>
-    </table>
+    </table><br><br>
+    <!-- -------------------------------form--------------------------------- -->
+     {% if key2 %}
+    <form id="frm" action="{% url 'save' pk=key2.myid %}" method="post">
+        {% csrf_token %}
+        <div data-mdb-input-init class="form-outline mb-4">
+          <label class="form-label" for="form1Example1">Address</label>
+          <input type="text" id="form1Example1" class="form-control" name="add" value="{{key2.add}}"/>
+        </div>
+        <div data-mdb-input-init class="form-outline mb-4">
+          <label class="form-label" for="form1Example2">Pick-Up Date & Time</label>
+          <input type="text" id="form1Example2" class="form-control" name="pick" value="{{key2.pick}}" />
+        </div>
+        <div data-mdb-input-init class="form-outline mb-4">
+            <label class="form-label" for="form1Example1">Drop Date & Time</label>
+            <input type="text" id="form1Example1" class="form-control" name="drop" value="{{key2.drop}}" />
+          </div>
+          <div data-mdb-input-init class="form-outline mb-4">
+            <label class="form-label" for="form1Example2">Feedback</label>
+            <input type="text" id="form1Example2" class="form-control" name="feed" value="{{key2.feed}}"/>
+          </div><br>
+        <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block">Save</button>
+      </form><br><br>
+      {% endif %}
 </body>
 
 </html>

@@ -10,4 +10,6 @@ urlpatterns = [
     path('carinfo/', views.carinfo, name='carinfo'),
     path('datadisplay/', views.datadisplay, name='datadisplay'),
     path('delete/<int:pk><str:em>', views.delete, name='delete'),
+    path('edit/<int:pk>', views.edit, name='edit'),
+    path('save/<int:pk>', views.save, name='save'),
 ]
