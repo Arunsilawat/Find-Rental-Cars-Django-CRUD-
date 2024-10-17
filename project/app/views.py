@@ -126,18 +126,28 @@ def save(request,pk):
 
 
 def select(request,em):
-    admindata=Userdata.objects.get(email=em)
-    fname=admindata.fname
-    lname=admindata.lname
-    email=admindata.email
-    password=admindata.password
-    user={
-        'fnm':fname,
-        'lnm':lname,
-        'em':email,
-        'pass':password
-        }
-    return render(request,'select.html',{'user':user})
+    getdata=Userdata.objects.filter(email=em)
+    if getdata:
+        admindata=Userdata.objects.get(email=em)
+        fname=admindata.fname
+        lname=admindata.lname
+        email=admindata.email
+        password=admindata.password
+        user={
+            'fnm':fname,
+            'lnm':lname,
+            'em':email,
+            'pass':password
+            }
+        return render(request,'select.html',{'user':user})
+    else:
+        msg="No Data Found"
+        return render(request,'select.html',{'msg':msg})
 def showdata(request,em):
-    data=Book_data.objects.filter(email=em)
-    return render(request,'datadisplay.html',{'data':data})
+    getdata=Book_data.objects.filter(email=em)
+    if getdata:
+        data=Book_data.objects.filter(email=em)
+        return render(request,'datadisplay.html',{'data':data})
+    else:
+        msg='Data Not Found'
+        return render(request,'datadisplay.html',{'msg':msg})
