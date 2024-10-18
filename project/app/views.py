@@ -77,7 +77,19 @@ def datadisplay(request):
         feedback=request.POST.get('feed')
         Book_data.objects.create(fname=fname,lname=lname,email=email,carnm=carnm,amount=amount,address=address,pick=pick,drop=drop,feedback=feedback)
         data=Book_data.objects.filter(email=email).values()
-        return render(request,'datadisplay.html',{'data':data})
+
+        admindata=Userdata.objects.get(email=email)
+        fname=admindata.fname
+        lname=admindata.lname
+        email=admindata.email
+        password=admindata.password
+        user={
+            'fnm':fname,
+            'lnm':lname,
+            'em':email,
+            'pass':password
+            }
+        return render(request,'datadisplay.html',{'data':data,'user':user})
 def delete(request,pk,em):
     user=Book_data.objects.filter(id=pk)
     if user:
@@ -85,10 +97,34 @@ def delete(request,pk,em):
         email=user.email
         user.delete()
         data=Book_data.objects.filter(email=email)
-        return render(request,'datadisplay.html',{'data':data})
+
+        admindata=Userdata.objects.get(email=email)
+        fname=admindata.fname
+        lname=admindata.lname
+        email=admindata.email
+        password=admindata.password
+        user={
+            'fnm':fname,
+            'lnm':lname,
+            'em':email,
+            'pass':password
+            }
+        return render(request,'datadisplay.html',{'data':data,'user':user})
     else:
         data=Book_data.objects.filter(email=em)
-        return render(request,'datadisplay.html',{'data':data})
+
+        admindata=Userdata.objects.get(email=em)
+        fname=admindata.fname
+        lname=admindata.lname
+        email=admindata.email
+        password=admindata.password
+        user={
+            'fnm':fname,
+            'lnm':lname,
+            'em':email,
+            'pass':password
+            }
+        return render(request,'datadisplay.html',{'data':data,'user':user})
 def edit(request,pk):
     data=Book_data.objects.get(id=pk)
     myid=data.id
@@ -97,7 +133,6 @@ def edit(request,pk):
     pick=data.pick
     drop=data.drop 
     feedback=data.feedback
-    print(email,address,pick,feedback)
     edit_data={
         'myid':myid,
         'add':address,
@@ -106,8 +141,19 @@ def edit(request,pk):
         'feed':feedback
     }
     alldata=Book_data.objects.filter(email=email)
-    print(alldata)
-    return render(request,'datadisplay.html',{'data':alldata,'key2':edit_data})
+
+    admindata=Userdata.objects.get(email=email)
+    fname=admindata.fname
+    lname=admindata.lname
+    email=admindata.email
+    password=admindata.password
+    user={
+        'fnm':fname,
+        'lnm':lname,
+        'em':email,
+        'pass':password
+        }
+    return render(request,'datadisplay.html',{'data':alldata,'key2':edit_data,'user':user})
 def save(request,pk):
     if request.method=='POST':
         address=request.POST.get('add')
@@ -121,13 +167,45 @@ def save(request,pk):
         old_data.drop=drop
         old_data.feedback=feedback
         old_data.save()
-        alldata=Book_data.objects.filter(email=email)
-        return render(request,'datadisplay.html',{'data':alldata})
+        alldata=Book_data.objects.filter(email=email) 
+
+        admindata=Userdata.objects.get(email=email)
+        fname=admindata.fname
+        lname=admindata.lname
+        email=admindata.email
+        password=admindata.password
+        user={
+            'fnm':fname,
+            'lnm':lname,
+            'em':email,
+            'pass':password
+            }
+        return render(request,'datadisplay.html',{'data':alldata,'user':user})
 
 
-def select(request,em):
-    getdata=Userdata.objects.filter(email=em)
+# def select(request,em):
+#     getdata=Userdata.objects.filter(email=em)
+#     if getdata:
+        # admindata=Userdata.objects.get(email=em)
+        # fname=admindata.fname
+        # lname=admindata.lname
+        # email=admindata.email
+        # password=admindata.password
+        # user={
+        #     'fnm':fname,
+        #     'lnm':lname,
+        #     'em':email,
+        #     'pass':password
+        #     }
+#         return render(request,'select.html',{'user':user})
+#     else:
+#         msg="No Data Found"
+#         return render(request,'select.html',{'msg':msg})
+def showdata(request,em):
+    email=em 
+    getdata=Book_data.objects.filter(email=em)
     if getdata:
+        data=Book_data.objects.filter(email=em)
         admindata=Userdata.objects.get(email=em)
         fname=admindata.fname
         lname=admindata.lname
@@ -139,15 +217,32 @@ def select(request,em):
             'em':email,
             'pass':password
             }
-        return render(request,'select.html',{'user':user})
+        return render(request,'datadisplay.html',{'data':data,'user':user})
     else:
-        msg="No Data Found"
-        return render(request,'select.html',{'msg':msg})
-def showdata(request,em):
-    getdata=Book_data.objects.filter(email=em)
-    if getdata:
-        data=Book_data.objects.filter(email=em)
-        return render(request,'datadisplay.html',{'data':data})
-    else:
-        msg='Data Not Found'
-        return render(request,'datadisplay.html',{'msg':msg})
+        msg='Data Not Found' 
+        admindata=Userdata.objects.get(email=em)
+        fname=admindata.fname
+        lname=admindata.lname
+        email=admindata.email
+        password=admindata.password
+        user={
+            'fnm':fname,
+            'lnm':lname,
+            'em':email,
+            'pass':password
+            }
+        return render(request,'datadisplay.html',{'msg':msg,'user':user})
+def select(request,em):
+    print(em)
+    admindata=Userdata.objects.get(email=em)
+    fname=admindata.fname
+    lname=admindata.lname
+    email=admindata.email
+    password=admindata.password
+    user={
+        'fnm':fname,
+        'lnm':lname,
+        'em':email,
+        'pass':password
+        }
+    return render(request,'select.html',{'user':user})
